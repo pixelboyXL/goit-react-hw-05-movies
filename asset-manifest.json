@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/goit-react-hw-05-movies/static/js/main.5d94a11a.js",
+    "static/media/404-error-page-examples-best.jpg": "/goit-react-hw-05-movies/static/media/404-error-page-examples-best.2c3e4d043c515daaf3a7.jpg",
+    "index.html": "/goit-react-hw-05-movies/index.html",
+    "main.5d94a11a.js.map": "/goit-react-hw-05-movies/static/js/main.5d94a11a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.5d94a11a.js"
+  ]
+}
