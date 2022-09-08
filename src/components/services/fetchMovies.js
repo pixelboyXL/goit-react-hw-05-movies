@@ -13,11 +13,12 @@ export const IMG_W100 = `/w100`;
 export const IMG_ORIG = `/original`;
 
 export const checkImages = (type, imgForCheck) => {
-    let img = '';
     if (type === "poster") {
-        return img = imgForCheck !== null ? `${IMG_BASE_URL}${IMG_W400}${imgForCheck}` : 'https://i.ibb.co/GPMFHG6/keep-calm-poster-not-found-1.png';
+        return imgForCheck !== null ? `${IMG_BASE_URL}${IMG_W400}${imgForCheck}` : 'https://i.ibb.co/GPMFHG6/keep-calm-poster-not-found-1.png';
     }
-    return img = imgForCheck !== null ? `${IMG_BASE_URL}${IMG_W200}${imgForCheck}` : 'https://static.hdrezka.ac/i/nopersonphoto.png';
+    if (type === "profile") {
+        return imgForCheck !== null ? `${IMG_BASE_URL}${IMG_W200}${imgForCheck}` : 'https://static.hdrezka.ac/i/nopersonphoto.png';
+    }
 };
 
 export const getTrending = async (page = 1) => {
