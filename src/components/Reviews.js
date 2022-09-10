@@ -1,7 +1,9 @@
-export const Reviews = ({ data: { total_results, results } }) => {
-    if (!total_results || !results) {
-        return;
-    }
+import { useOutletContext } from "react-router-dom";
+
+export const Reviews = () => {
+    const data = useOutletContext();
+
+    const { total_results, results } = data.reviews;
 
     return (
         <section>

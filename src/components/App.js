@@ -4,6 +4,8 @@ import { Box } from "./Box";
 import { Home } from "pages/Home";
 import { Movies } from "pages/Movies";
 import { MovieDetails } from "pages/MovieDetails";
+import { Cast } from "./Cast";
+import { Reviews } from "./Reviews";
 import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
 
@@ -19,7 +21,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />}/>
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
         <Route path="*" element={<Error errorImg={img} errorMessage="Back to home"/>} />
       </Routes>
       <GlobalStyle />

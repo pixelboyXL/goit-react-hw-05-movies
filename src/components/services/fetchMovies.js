@@ -36,7 +36,7 @@ export const getSearchMovie = async (query, page) => {
 };
 
 export const getMovieDetails = async id => {
-    const { data } = await axios.get(`/movie/${id}?api_key=${KEY}`);
+    const { data } = await axios.get(`/movie/${id}?api_key=${KEY}&append_to_response=credits,reviews`);
     return data;
 };
 

@@ -1,10 +1,15 @@
+import { useOutletContext } from "react-router-dom";
 import { checkImages } from "components/services/fetchMovies";
 
-export const Cast = ({ data }) => {
+export const Cast = () => {
+    const data = useOutletContext();
+
+    const { cast } = data.credits;
+
     return (
         <section>
             <ul>
-                {data.cast.map(({ id, name, profile_path, character }) => {
+                {cast.map(({ id, name, profile_path, character }) => {
                     const imgForProfile = checkImages("profile", profile_path);
                     return (
                         <li key={id}>
