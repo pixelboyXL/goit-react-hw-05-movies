@@ -1,11 +1,14 @@
 {
   "files": {
-    "main.js": "/goit-react-hw-05-movies/static/js/main.17a34bdc.js",
+    "main.css": "/goit-react-hw-05-movies/static/css/main.3d10672c.css",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.59569264.js",
     "static/media/404-error-page-examples-best.jpg": "/goit-react-hw-05-movies/static/media/404-error-page-examples-best.2c3e4d043c515daaf3a7.jpg",
     "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.17a34bdc.js.map": "/goit-react-hw-05-movies/static/js/main.17a34bdc.js.map"
+    "main.3d10672c.css.map": "/goit-react-hw-05-movies/static/css/main.3d10672c.css.map",
+    "main.59569264.js.map": "/goit-react-hw-05-movies/static/js/main.59569264.js.map"
   },
   "entrypoints": [
-    "static/js/main.17a34bdc.js"
+    "static/css/main.3d10672c.css",
+    "static/js/main.59569264.js"
   ]
 }
