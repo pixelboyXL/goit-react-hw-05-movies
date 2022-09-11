@@ -40,12 +40,12 @@ export const getMovieDetails = async id => {
     return data;
 };
 
-export const getMovieCast = async id => {
-    const { data } = await axios.get(`/movie/${id}/credits?api_key=${KEY}`);
-    return data;
-};
+// export const getMovieCast = async id => {
+//     const { data } = await axios.get(`/movie/${id}/credits?api_key=${KEY}`);
+//     return data;
+// };
 
-export const getMovieReviews = async id => {
-    const { data } = await axios.get(`/movie/${id}/reviews?api_key=${KEY}`);
-    return data;
-};
+// export const getMovieReviews = async id => {
+//     const { data } = await axios.get(`/movie/${id}/reviews?api_key=${KEY}`);
+//     return data;
+// };

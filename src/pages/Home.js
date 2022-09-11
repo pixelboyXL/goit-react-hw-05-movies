@@ -1,31 +1,20 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { getTrending, checkImages } from "components/services/fetchMovies";
+import { getTrending } from "components/services/fetchMovies";
+import { FilmsList } from "components/FilmsList";
+import { toastError } from "components/services/toasts";
 
 export const Home = () => {
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        getTrending().then(data => setMovies(data.results));
+        try {
+            getTrending().then(data => setMovies(data.results));
+        } catch (error) {
+            toastError();
+        };
     }, []);
     
     return (
-        <main>
-            <ul>
-                {movies.map(({ id, title, poster_path }) => {
-                    const imgForPoster = checkImages("poster", poster_path);
-                    return (
-                        <li key={id}>
-                            <NavLink to={`/movies/${id}`}>
-                                <div>
-                                    <img src={imgForPoster} alt={title} />
-                                    <p>{title}</p>
-                                </div>
-                            </NavLink>
-                        </li>
-                    );
-                })}
-            </ul>
-        </main>
+        <FilmsList data={movies} />
     );
 };

@@ -8,6 +8,8 @@ import { Cast } from "./Cast";
 import { Reviews } from "./Reviews";
 import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   return (
@@ -28,6 +30,7 @@ export const App = () => {
         <Route path="*" element={<Error errorImg={img} errorMessage="Back to home"/>} />
       </Routes>
       <GlobalStyle />
+      <ToastContainer autoClose={3000}/>
     </>
   );
 };

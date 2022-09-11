@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMovieDetails, checkImages } from "components/services/fetchMovies";
+import { toastError } from "components/services/toasts";
 
 export const MovieDetails = () => {
     const { movieId } = useParams()
     const [movie, setMovie] = useState(null);
+    const location = useLocation();
 
     useEffect(() => {
-        getMovieDetails(movieId).then(setMovie);
+        try {
+            getMovieDetails(movieId).then(setMovie);
+        } catch (error) {
+            toastError();
+        };
     }, [movieId]);
 
     if (!movie) {
@@ -15,14 +21,14 @@ export const MovieDetails = () => {
     };
 
     const { poster_path, title, vote_average, overview, genres, release_date } = movie;
-
     const imgForPoster = checkImages("poster", poster_path);
     const releaseDate = new Date(release_date).getFullYear();
+    const backLinkHref = location.state?.from ?? '/movies';
 
     return (
         <main>
             <section>
-                <NavLink to="/">Go back</NavLink>
+                <NavLink to={backLinkHref}>Go back</NavLink>
                 <div>
                     <h2>{title} ({releaseDate})</h2>
                     <img src={imgForPoster} alt={title} />
@@ -41,10 +47,10 @@ export const MovieDetails = () => {
                 <p><b>Additional information</b></p>
                 <ul>
                     <li>
-                        <NavLink to="cast">Cast</NavLink>
+                        <NavLink to="cast" state={{ from: location.state?.from }}>Cast</NavLink>
                     </li>
                     <li>
-                        <NavLink to="reviews">Reviews</NavLink>
+                        <NavLink to="reviews" state={{ from: location.state?.from }}>Reviews</NavLink>
                     </li>
                 </ul>
                 <Outlet context={movie} />
