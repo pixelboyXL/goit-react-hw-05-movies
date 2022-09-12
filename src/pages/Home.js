@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getTrending } from "components/services/fetchMovies";
-import { FilmsList } from "components/FilmsList";
+import { FilmsList } from "components/FilmList/FilmsList";
 import { toastError } from "components/services/toasts";
 
 export const Home = () => {

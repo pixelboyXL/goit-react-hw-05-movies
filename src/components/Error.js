@@ -1,16 +1,14 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-import { NavLink } from "react-router-dom";
-
-export const Error = ({ errorImg, errorMessage }) => {
+export const Error = ({ errorImg, children }) => {
     return (
         <section>
             <img src={errorImg} alt="Wow dude, try one more time" />
-            <NavLink to="/">{errorMessage}</NavLink>
+            {children}
         </section>
     );
 };
 
-// ErrorImg.propTypes = {
-//     errorImg: PropTypes.string.isRequired,
-// };
+Error.propTypes = {
+    errorImg: PropTypes.string.isRequired,
+};

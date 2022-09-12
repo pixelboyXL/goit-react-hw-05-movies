@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { getSearchMovie } from 'components/services/fetchMovies';
-import { FilmsList } from "components/FilmsList";
+import { FilmsList } from "components/FilmList/FilmsList";
 import { useSearchParams } from "react-router-dom";
 import { toastInfoNothing, toastInfoDuplication, toastWarn, toastError } from "components/services/toasts";
+import { ProgressBar } from "react-loader-spinner";
+import { ProgressBarStyle } from "components/services/fetchMovies";
+import { Error } from "components/Error";
+import img from 'components/images/404-error-page-examples-best.jpg';
 
 export const Movies = () => {
     const [text, setText] = useState('');
     const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
 
     const searchFilms = (event) => {
@@ -17,26 +23,27 @@ export const Movies = () => {
         if (text === searchQuery.trim()) {
             return toastInfoDuplication();
         };
+        setMovies([]);
         setSearchParams(text !== '' ? { query: text } : {});
         setText('');
     };
-
+    
     const searchQuery = searchParams.get('query') ?? '';
 
     useEffect(() => {
         if (!searchQuery) {
             return;
         };
-        // setLoading(true);
+        setLoading(true);
         try {
             getSearchMovie(searchQuery).then(({ total_results, results }) => {
                 if (total_results === 0) {
                     toastWarn();
-                // setLoading(false);
-                // setIsError(true);
+                    setLoading(false);
+                    setError(true);
                     return;
                 };
-                // if (page === 1 && results.length > 1) {
+                // if (results.length > 1 && searchQuery === '') {
                 //     toastSuccess();
                 // };
                 const onlyNeedValues = results.map(({ id, poster_path, title, vote_average, overview, genres, release_date }) => (
@@ -51,14 +58,14 @@ export const Movies = () => {
                     })
                 );
                 setMovies([...onlyNeedValues]);
-                //     setLoading(false);
-                //     setIsError(false);
-        });
+                setLoading(false);
+                setError(false);
+            }).finally(() => {
+                setLoading(false);
+            });
         } catch (error) {
             toastError();
-        }//     .finally(() => {
-                //         setLoading(false);
-                //     });
+        };
     }, [searchQuery]);
 
     return (
@@ -79,7 +86,9 @@ export const Movies = () => {
                     </svg>
                 </button>
             </form>
+            {loading && <ProgressBar {...ProgressBarStyle} />}
             {movies !== null && <FilmsList data={movies} />}
+            {error && <Error errorImg={img}/>}
         </main>
     );
 };

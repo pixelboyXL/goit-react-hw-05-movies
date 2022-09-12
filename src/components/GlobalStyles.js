@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -8,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #88A795;
+        background-color: #686868;
     }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -26,23 +27,38 @@ export const GlobalStyle = createGlobalStyle`
         color: ${p => p.theme.colors.justBlack};
         text-decoration: none;
     }
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    
 `;
 
-export const MainTitle = styled.h1`
-    text-align: center;
-    margin-bottom: ${p => p.theme.space[5]}px;
-    color: ${p => p.theme.colors.almostDarkGreen};
+export const AppBarList = styled.ul`
+    display: flex;
+    justify-content: center;
 `;
 
-export const ContactsTitle = styled.h2`
-    text-align: center;
-    margin-bottom: ${p => p.theme.space[4]}px;
-    color: ${p => p.theme.colors.almostDarkGreen};
+export const AppBarItem = styled.li`
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+        transform: scale(1.15);
+        text-shadow: 0px 5px 10px ${p => p.theme.colors.reallyBisgue};
+    }
+    &:not(:first-child) {
+        margin-left: 15px;
+    }
 `;
 
-export const WarningMessage = styled.p`
-    text-align: center;
+export const NavTitle = styled(NavLink)`
     font-weight: ${p => p.theme.fontWeights.medium};
-    font-size: ${p => p.theme.fontSizes.m};
-    color: ${p => p.theme.colors.almostDarkGreen};
+    font-size: ${p => p.theme.fontSizes.l};
+    color: ${p => p.theme.colors.clearlyWhite};
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &.active {
+        color: bisque;
+    }
 `;

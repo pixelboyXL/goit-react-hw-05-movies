@@ -40,6 +40,15 @@ export const getMovieDetails = async id => {
     return data;
 };
 
+export const ProgressBarStyle = {
+    height: "80",
+    width: "80",
+    ariaLabel: "progress-bar-loading",
+    wrapperClass: "progress-bar-wrapper",
+    borderColor: "green",
+    barColor: "yellow",
+};
+
 // export const getMovieCast = async id => {
 //     const { data } = await axios.get(`/movie/${id}/credits?api_key=${KEY}`);
 //     return data;

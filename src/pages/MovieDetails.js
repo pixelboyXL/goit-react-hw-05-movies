@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { getMovieDetails, checkImages } from "components/services/fetchMovies";
 import { toastError } from "components/services/toasts";
+import { ProgressBar } from "react-loader-spinner";
+import { ProgressBarStyle } from "components/services/fetchMovies";
 
 export const MovieDetails = () => {
     const { movieId } = useParams()
@@ -32,7 +34,7 @@ export const MovieDetails = () => {
                 <div>
                     <h2>{title} ({releaseDate})</h2>
                     <img src={imgForPoster} alt={title} />
-                    <p>User score: {vote_average}</p>
+                    <p>User score: {vote_average.toFixed(1)}</p>
                     <p><b>Overview</b></p>
                     <span>{overview}</span>
                     <p><b>Genres</b></p>
@@ -53,7 +55,9 @@ export const MovieDetails = () => {
                         <NavLink to="reviews" state={{ from: location.state?.from }}>Reviews</NavLink>
                     </li>
                 </ul>
-                <Outlet context={movie} />
+                <Suspense fallback={<ProgressBar {...ProgressBarStyle}/>}>
+                    <Outlet context={movie} />
+                </Suspense>
             </section>
         </main>
     );
