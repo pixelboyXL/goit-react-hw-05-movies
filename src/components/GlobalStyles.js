@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #686868;
+        background-color: #9a9385;
     }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -33,7 +33,19 @@ export const GlobalStyle = createGlobalStyle`
         height: auto;
         object-fit: contain;
     }
-    
+    body::-webkit-scrollbar {
+        width: 20px;
+    }
+    body::-webkit-scrollbar-track {
+        background-color: transparent;
+		margin-block: ${p => p.theme.space[3]}px;
+		border-radius: ${p => p.theme.radii.md};
+    }
+    body::-webkit-scrollbar-thumb {
+        background-color: ${p => p.theme.colors.reallyBisque};
+		border-radius: ${p => p.theme.radii.md};
+		border: ${p => `${p.theme.borders.medium} ${p.theme.colors.cherryRed}`};
+    }
 `;
 
 export const AppBarList = styled.ul`
@@ -49,7 +61,7 @@ export const AppBarItem = styled.li`
         text-shadow: 0px 5px 10px ${p => p.theme.colors.reallyBisgue};
     }
     &:not(:first-child) {
-        margin-left: 15px;
+        margin-left: ${p => p.theme.space[4]}px;
     }
 `;
 
@@ -59,6 +71,6 @@ export const NavTitle = styled(NavLink)`
     color: ${p => p.theme.colors.clearlyWhite};
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &.active {
-        color: bisque;
+        color: ${p => p.theme.colors.cherryRed};
     }
 `;

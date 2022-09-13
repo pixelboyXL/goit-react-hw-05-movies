@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const FilmListSection = styled.section`
+    margin-bottom: ${p => p.theme.space[5]}px;
+`;
+
 export const FilmListStyled = styled.ul`
     display: flex;
     flex-wrap: wrap;
@@ -7,7 +11,7 @@ export const FilmListStyled = styled.ul`
     gap: ${p => p.theme.space[5]}px;
 `;
 
-export const FilmListDiv = styled.div`
+export const FilmListWrapper = styled.div`
     text-align: center;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
     &:hover {

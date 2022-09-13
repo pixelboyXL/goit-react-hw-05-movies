@@ -11,6 +11,8 @@ export const theme = {
         maybeYellow: '#decea9',
         midnightGrey: '#686868',
         reallyBisque: 'bisque',
+        cherryRed: '#6d031c',
+        tastyCoffe: '#a79086',
     },
     space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
     fonts: {
@@ -37,6 +39,7 @@ export const theme = {
     borders: {
         none: 'none',
         normal: '2px solid',
+        medium: '6px solid',
     },
     radii: {
         none: '0',

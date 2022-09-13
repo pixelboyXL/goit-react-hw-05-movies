@@ -44,9 +44,9 @@ export const ProgressBarStyle = {
     height: "80",
     width: "80",
     ariaLabel: "progress-bar-loading",
-    wrapperClass: "progress-bar-wrapper",
-    borderColor: "green",
-    barColor: "yellow",
+    wrapperClass: "",
+    borderColor: "#6d031c",
+    barColor: "bisque",
 };
 
 // export const getMovieCast = async id => {

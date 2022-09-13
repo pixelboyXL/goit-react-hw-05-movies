@@ -3,7 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyles";
 import { AppBar } from "./AppBar";
 import { Home } from "pages/Home";
-import { Movies } from "pages/Movies";
+import { Movies } from "pages/Movies/Movies";
 import { MovieDetails } from "pages/MovieDetails";
 import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
