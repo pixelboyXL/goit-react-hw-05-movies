@@ -74,3 +74,26 @@ export const NavTitle = styled(NavLink)`
         color: ${p => p.theme.colors.cherryRed};
     }
 `;
+
+export const ErrorSection = styled.section`
+    text-align: center;
+    padding: 20px;
+    img {
+        padding-bottom: ${p => p.theme.space[5]}px;
+        display: block;
+        margin: 0 auto;
+    }
+`;
+
+export const NavButton = styled(NavLink)`
+    padding: ${p => p.theme.space[3]}px;
+    border-radius: ${p => p.theme.radii.md};
+    border: ${p => `${p.theme.borders.normal} ${p.theme.colors.cherryRed}`};
+    color: ${p => p.theme.colors.cherryRed};
+    background-color: ${p => p.theme.colors.reallyBisque};
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+        color: ${p => p.theme.colors.reallyBisque};
+        background-color: ${p => p.theme.colors.cherryRed};
+    }
+`;

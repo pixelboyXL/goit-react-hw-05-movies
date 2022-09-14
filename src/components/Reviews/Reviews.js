@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom";
+import { ReviewsList } from "./Reviews.styled";
 
 export const Reviews = () => {
     const data = useOutletContext();
@@ -6,9 +7,9 @@ export const Reviews = () => {
     const { total_results, results } = data.reviews;
 
     return (
-        <section>
+        <>
             {total_results !== 0
-                ? <ul>
+                ? <ReviewsList>
                     {results.map(({ id, author, content }) => {
                         return (
                             <li key={id}>
@@ -17,8 +18,8 @@ export const Reviews = () => {
                             </li>
                         );
                     })}
-                </ul>
+                </ReviewsList>
                 : <p>Sorry, we don`t have any reviews for this movie</p>}
-        </section>
+        </>
     );
 };

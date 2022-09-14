@@ -1,21 +1,21 @@
 import { lazy } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyles";
 import { AppBar } from "./AppBar";
 import { Home } from "pages/Home";
 import { Movies } from "pages/Movies/Movies";
-import { MovieDetails } from "pages/MovieDetails";
+import { MovieDetails } from "pages/MovieDetails/MovieDetails";
 import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { NavButton } from "components/GlobalStyles";
 
-
-const Cast = lazy(() => import('./Cast').then(module => ({
+const Cast = lazy(() => import('./Cast/Cast').then(module => ({
   ...module,
   default: module.Cast,
 })));
-const Reviews = lazy(() => import('./Reviews').then(module => ({
+const Reviews = lazy(() => import('./Reviews/Reviews').then(module => ({
   ...module,
   default: module.Reviews,
 })));
@@ -26,14 +26,15 @@ export const App = () => {
       <AppBar />
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/movies" element={<Movies />}/>
+        <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route index element="For more information, please click the appropriate button👆" />
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="*" element={
           <Error errorImg={img}>
-            <NavLink to="/">Back to home</NavLink>
+            <NavButton to="/">Back to home</NavButton>
           </Error>} />
       </Routes>
       <GlobalStyle />
