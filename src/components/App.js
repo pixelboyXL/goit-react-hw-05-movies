@@ -2,9 +2,6 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyles";
 import { AppBar } from "./AppBar";
-// import { Home } from "pages/Home";
-// import { Movies } from "pages/Movies/Movies";
-// import { MovieDetails } from "pages/MovieDetails/MovieDetails";
 import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
 import { ToastContainer } from 'react-toastify';
@@ -58,12 +55,6 @@ export const App = () => {
     </>
   );
 };
-
-// '/' – компонент Home, домашня сторінка зі списком популярних кінофільмів.
-// '/movies' – компонент Movies, сторінка пошуку кінофільмів за ключовим словом.
-// '/movies/:movieId' – компонент MovieDetails, сторінка з детальною інформацією про кінофільм.
-// /movies/:movieId/cast – компонент Cast, інформація про акторський склад. Рендериться на сторінці MovieDetails.
-// /movies/:movieId/reviews – компонент Reviews, інформація про огляди. Рендериться на сторінці MovieDetails.
 
 /* <div
   style={{
