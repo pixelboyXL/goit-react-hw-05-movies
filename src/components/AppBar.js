@@ -6,7 +6,7 @@ export const AppBar = () => {
         <Box as="header"
             mb={5}
             p={3}
-            bg="justBlack"
+            bg="#483233"
             boxShadow="shadow">
             <Box as="nav">
                 <AppBarList>

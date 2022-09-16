@@ -7,20 +7,26 @@ export const Cast = () => {
 
     const { cast } = data.credits;
 
+    console.log(cast);
+
     return (
-        <CastList>
-            {cast.map(({ id, name, profile_path, character }) => {
-                const imgForProfile = checkImages("profile", profile_path);
-                return (
-                    <li key={id}>
-                        <div>
-                            <img src={imgForProfile} alt={name} />
-                            <p>{name}</p>
-                            <span>Character: {character}</span>
-                        </div>
-                    </li>
-                );
-            })}
-        </CastList>
+        <>
+            {cast.length !== 0
+            ? <CastList>
+                {cast.map(({ id, name, profile_path, character }) => {
+                    const imgForProfile = checkImages("profile", profile_path);
+                    return (
+                        <li key={id}>
+                            <div>
+                                <img src={imgForProfile} alt={name} />
+                                <p>{name}</p>
+                                <span>Character: {character}</span>
+                            </div>
+                        </li>
+                    );
+                })}
+                </CastList>
+            : <p>Sorry, it seems that there is currently no information about the actors🙈</p>}
+        </>
     );
 };

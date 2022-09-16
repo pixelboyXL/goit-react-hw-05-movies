@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { checkImages } from "components/services/fetchMovies";
 import { FilmListSection, FilmListStyled, FilmListWrapper, FilmListTitle } from './FilmList.styled';
 
@@ -13,12 +13,12 @@ export const FilmsList = ({ data }) => {
                     const imgForPoster = checkImages("poster", poster_path);
                     return (
                         <li key={id}>
-                            <NavLink to={`/movies/${id}`} state={{from: location}}>
+                            <Link to={`/movies/${id}`} state={{from: location}}>
                                 <FilmListWrapper>
                                     <img src={imgForPoster} alt={title} />
                                     <FilmListTitle>{title}</FilmListTitle>
                                 </FilmListWrapper>
-                            </NavLink>
+                            </Link>
                         </li>
                     );
                 })}

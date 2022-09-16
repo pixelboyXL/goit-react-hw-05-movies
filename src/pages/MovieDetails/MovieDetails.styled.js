@@ -6,7 +6,7 @@ export const MovieDetailsMain = styled.main`
     margin: 0 auto;
     span {
         display: block;
-        margin-left: 10px;
+        /* margin-left: 10px; */
         margin-bottom: ${p => p.theme.space[5]}px;
     }
 `;

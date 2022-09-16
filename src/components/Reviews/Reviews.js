@@ -19,7 +19,7 @@ export const Reviews = () => {
                         );
                     })}
                 </ReviewsList>
-                : <p>Sorry, we don`t have any reviews for this movie</p>}
+                : <p>Sorry, we don`t have any reviews for this movie🙈</p>}
         </>
     );
 };
