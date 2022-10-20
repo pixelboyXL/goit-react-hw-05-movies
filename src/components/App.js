@@ -6,9 +6,10 @@ import { Error } from "./Error";
 import img from 'components/images/404-error-page-examples-best.jpg';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NavButton } from "components/GlobalStyles";
 import { ProgressBar } from "react-loader-spinner";
 import { ProgressBarStyle } from "components/services/fetchMovies";
+import { AdditionalMessage } from "./AdditionalMessage";
+import { Footer } from "./Footer/Footer";
 
 const Home = lazy(() => import('../pages/Home').then(module => ({
   ...module,
@@ -40,16 +41,14 @@ export const App = () => {
         <Route path="/" element={<Home />}/>
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<MovieDetails />}>
-          <Route index element="For more information, please click the appropriate button👆" />
+          <Route index element={<AdditionalMessage />} />
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
-        <Route path="*" element={
-          <Error errorImg={img}>
-            <NavButton to="/">Back to home</NavButton>
-          </Error>} />
+        <Route path="*" element={<Error errorImg={img}/>} />
       </Routes>
       </Suspense>
+      <Footer />
       <GlobalStyle />
       <ToastContainer autoClose={3000}/>
     </>

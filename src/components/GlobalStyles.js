@@ -11,6 +11,11 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background-color: #9a9385;
     }
+    #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
@@ -48,6 +53,20 @@ export const GlobalStyle = createGlobalStyle`
     }
 `;
 
+const size = {
+    mobile: '480',
+    tablet: '768',
+    desktop: '1280',
+};
+
+export const device = {
+    mobile: `(min-width: ${size.mobile}px)`,
+    mobileOnly: `(max-width: ${size.tablet - 0.02}px)`,
+    tablet: `(min-width: ${size.tablet}px)`,
+    tabletOnly: `(max-width: ${size.desktop - 0.02}px)`,
+    desktop: `(min-width: ${size.desktop}px)`,
+};
+
 export const AppBarList = styled.ul`
     display: flex;
     justify-content: center;
@@ -55,10 +74,10 @@ export const AppBarList = styled.ul`
 
 export const AppBarItem = styled.li`
     cursor: pointer;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     &:hover {
-        transform: scale(1.15);
-        text-shadow: 0px 5px 10px ${p => p.theme.colors.reallyBisgue};
+        transform: ${p => p.theme.transform.scaleThird};
+        text-shadow: ${p => p.theme.shadows.shadowSecond};
     }
     &:not(:first-child) {
         margin-left: ${p => p.theme.space[4]}px;
@@ -69,7 +88,7 @@ export const NavTitle = styled(NavLink)`
     font-weight: ${p => p.theme.fontWeights.medium};
     font-size: ${p => p.theme.fontSizes.l};
     color: ${p => p.theme.colors.clearlyWhite};
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     &.active {
         color: ${p => p.theme.colors.cherryRed};
     }
@@ -77,7 +96,7 @@ export const NavTitle = styled(NavLink)`
 
 export const ErrorSection = styled.section`
     text-align: center;
-    padding: 20px;
+    padding: ${p => p.theme.space[4]}px;
     img {
         padding-bottom: ${p => p.theme.space[5]}px;
         display: block;
@@ -91,9 +110,13 @@ export const NavButton = styled(NavLink)`
     border: ${p => `${p.theme.borders.normal} ${p.theme.colors.cherryRed}`};
     color: ${p => p.theme.colors.cherryRed};
     background-color: ${p => p.theme.colors.reallyBisque};
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     &:hover {
         color: ${p => p.theme.colors.reallyBisque};
         background-color: ${p => p.theme.colors.cherryRed};
     }
+`;
+
+export const AdditionalMessageStyle = styled.span`
+    text-align: center;
 `;

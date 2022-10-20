@@ -70,7 +70,7 @@ export const Movies = () => {
     }, [searchQuery]);
 
     return (
-        <main>
+        <main style={{ flexGrow: "1" }}>
             <SearchBar>
                 <SearchForm onSubmit={searchFilms}>
                     <SearchFormInput

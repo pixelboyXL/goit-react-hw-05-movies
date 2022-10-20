@@ -31,7 +31,7 @@ export const MovieDetails = () => {
 
     return (
         <MovieDetailsMain>
-            <span>
+            <span style={{marginBottom: "26px"}}>
                 <NavButton to={backLinkHref}>Go back</NavButton>
             </span>
             <MovieDetailsMainWrapper>

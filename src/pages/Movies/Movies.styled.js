@@ -30,7 +30,7 @@ export const SearchFormButton = styled.button`
     height: 48px;
     border: 0;
     opacity: 0.6;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     cursor: pointer;
     outline: none;
     background-color: ${p => p.theme.colors.tastyCoffe};

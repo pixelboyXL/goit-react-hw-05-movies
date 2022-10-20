@@ -1,20 +1,28 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { device } from "components/GlobalStyles";
 
 export const MovieDetailsMain = styled.main`
     max-width: 1600px;
     margin: 0 auto;
+    padding: 0 ${p => p.theme.space[4]}px;
     span {
         display: block;
-        /* margin-left: 10px; */
-        margin-bottom: ${p => p.theme.space[5]}px;
+        @media ${device.tablet} {
+            margin-bottom: ${p => p.theme.space[5]}px;
+        }
     }
 `;
 
 export const MovieDetailsMainWrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media ${device.mobileOnly} {
+        text-align: center;
+    }
+    @media ${device.tablet} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     img {
         display: inline-block;
         max-height: 500px;
@@ -26,7 +34,9 @@ export const MovieDetailsInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: ${p => p.theme.space[5]}px;
-    margin-left: ${p => p.theme.space[5]}px;
+    @media ${device.tablet} {
+        margin-left: ${p => p.theme.space[5]}px;
+    }
     h2 {
         color: ${p => p.theme.colors.cherryRed};
     }
@@ -40,6 +50,9 @@ export const MovieDetailsInfoWrapper = styled.div`
 
 export const MovieDetailsGenresList = styled.ul`
     display: flex;
+    @media ${device.mobileOnly} {
+        justify-content: center;
+    }
     li {
         &:not(:first-child) {
         margin-left: ${p => p.theme.space[4]}px;
@@ -72,10 +85,10 @@ export const MovieDetailsAdditionalNavigate = styled.ul`
         &:not(:first-child) {
             margin-left: ${p => p.theme.space[4]}px;
         }
-        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: ${p => p.theme.transition.cubicBezier};
         &:hover {
-            transform: scale(1.15);
-            box-shadow: 0px 5px 10px ${p => p.theme.colors.cherryRed};
+            transform: ${p => p.theme.transform.scaleThird};
+            box-shadow: ${p => p.theme.shadows.shadowSecond};
             background-color: ${p => p.theme.colors.cherryRed};
         }
     }
@@ -84,7 +97,7 @@ export const MovieDetailsAdditionalNavigate = styled.ul`
 export const NavTitle = styled(NavLink)`
     padding: ${p => p.theme.space[3]}px;
     color: ${p => p.theme.colors.cherryRed};
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     &:hover {
         color: ${p => p.theme.colors.reallyBisque};
     }

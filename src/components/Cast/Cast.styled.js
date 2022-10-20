@@ -5,7 +5,7 @@ export const CastList = styled.ul`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: ${p => p.theme.space[4]}px;
     li {
         height: 407px;
     }
@@ -18,9 +18,9 @@ export const CastList = styled.ul`
         gap: ${p => p.theme.space[4]}px;
         width: 280px;
         cursor: pointer;
-        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        transition: ${p => p.theme.transition.cubicBezier};
         &:hover {
-            transform: scale(1.1);
+            transform: ${p => p.theme.transform.scaleSecond};
         }
         img {
             width: 200px;

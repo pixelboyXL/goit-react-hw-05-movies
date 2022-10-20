@@ -13,6 +13,7 @@ export const theme = {
         reallyBisque: 'bisque',
         cherryRed: '#6d031c',
         tastyCoffe: '#a79086',
+        pastelBurgundy: '#483233',
     },
     space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
     fonts: {
@@ -49,6 +50,15 @@ export const theme = {
         round: '50%',
     },
     shadows: {
-        shadow: '0 4px 4px rgba(0, 0, 0, .25)',
-    }
+        shadowFirst: '0 4px 4px rgba(0, 0, 0, .25)',
+        shadowSecond: '0px 5px 10px bisque',
+    },
+    transition: {
+        cubicBezier: 'all 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+    },
+    transform: {
+        scaleFirst: 'scale(1.07)',
+        scaleSecond: 'scale(1.1)',
+        scaleThird: 'scale(1.15)',
+    },
 };

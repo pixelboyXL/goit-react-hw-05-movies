@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const FilmListSection = styled.section`
+export const FilmListSection = styled.main`
+    height: 100%;
     margin-bottom: ${p => p.theme.space[5]}px;
 `;
 
@@ -13,9 +14,9 @@ export const FilmListStyled = styled.ul`
 
 export const FilmListWrapper = styled.div`
     text-align: center;
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: ${p => p.theme.transition.cubicBezier};
     &:hover {
-        transform: scale(1.07);
+        transform: ${p => p.theme.transform.scaleFirst};
     }
 `;
 
